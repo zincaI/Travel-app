@@ -62,6 +62,7 @@ export class HomeComponent {
   worstTripNote: TripNote;
   bestRating = 0;
   worstRating = 5;
+  showPopup: boolean;
 
   //aka sintactic sugar
   constructor(
@@ -88,12 +89,12 @@ export class HomeComponent {
       });
 
       this.bestTripNote = this.tripNotes.find(
-        (tripNote) => (tripNote.rating === this.bestRating)
+        (tripNote) => tripNote.rating === this.bestRating
       );
       this.worstTripNote = this.tripNotes.find(
-        (tripNote) => (tripNote.rating === this.worstRating)
+        (tripNote) => tripNote.rating === this.worstRating
       );
-      console.log("this.bestTripNote",this.bestTripNote);
+      console.log('this.bestTripNote', this.bestTripNote);
     });
 
     this.tripNotesFacade.loaded$.subscribe((loaded) => {
@@ -107,10 +108,13 @@ export class HomeComponent {
     this.tripNotesFacade.invalidFavoriteTripNotesRoute$.subscribe(
       (isFavoriteTripNotesRouteValid) => {
         this.invalidFavoriteTripNotesRoute = isFavoriteTripNotesRouteValid;
-        console.log(
-          'this.isFavoriteTripNotesRouteValid',
-          this.invalidFavoriteTripNotesRoute
-        );
+        if (this.invalidFavoriteTripNotesRoute) {
+          this.showPopup = true;
+          setTimeout(() => {
+            this.showPopup = false;
+          }, 3000); // Timeout set to 5000 milliseconds (5 seconds)
+      }
+   
       }
     );
 

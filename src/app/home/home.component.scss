@@ -42,7 +42,28 @@ button {
   background-color: black;
 }
 
-.option{
+.option {
   background-color: black;
-  color:pink;
+  color: pink;
+}
+
+.trip-note-header {
+  font-size: 1.3em;
+  font-weight: bolder;
+  font-style: italic;
+  margin-bottom: 5px;
+  color: black;
+  text-align: center;
+}
+
+.famous-trip-notes-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.note {
+  display: inline-block;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow-y: auto;
 }

@@ -71,9 +71,20 @@
   } }
   <cos [fruct]="fruct" (ceva)="cevaPrimit($event)"></cos>
   @if (invalidFavoriteTripNotesRoute){
-  <app-simple-popup>There is not enough data to display</app-simple-popup>
+  <app-simple-popup *ngIf="showPopup">There is not enough data to display</app-simple-popup>
   }
-  <!-- <app-famous-trip>cv</app-famous-trip> -->
 
-  <app-famous-trip [tripNote]="bestTripNote">Best trip</app-famous-trip>
+  <div class="famous-trip-notes-container">
+    <div class="note">
+    <app-famous-trip [tripNote]="bestTripNote"
+      ><span class="trip-note-header">Best trip</span></app-famous-trip
+    >
+  </div>
+
+    <div class="note">
+      <app-famous-trip class="worst-trip-note" [tripNote]="worstTripNote"
+        ><span class="trip-note-header">Worst trip</span></app-famous-trip
+      >
+    </div>
+  </div>
 </div>

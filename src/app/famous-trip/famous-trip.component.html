@@ -1,6 +1,8 @@
-<ng-content></ng-content>
+<ng-content class="content"></ng-content>
 @if (tripNote()) {
-<div>{{tripNote().title}}</div>
-<div>{{tripNote().description}}</div>
-<div>{{tripNote().rating}}</div>
+    <div class="note">
+        <div class="note__title">{{tripNote().title}}</div>
+        <div class="note__description">{{tripNote().description}}</div>
+        <div class="note__rating">{{tripNote().rating}}</div>
+    </div>
 }
